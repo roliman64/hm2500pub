@@ -47,11 +47,12 @@ logger:
         }
 
 ota:
-  password: !secret ota_password
+- platform: esphome
+  password: 0815
 
 wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
+  ssid: WLAN_JOUAUX
+  password: fuchsrain2812
   reboot_timeout: 0s
   fast_connect: True
   on_connect:
@@ -74,11 +75,11 @@ web_server:
 captive_portal:
 
 mqtt:
-  id: mqtt_client
-  broker: !secret mqtt_broker
-  port: !secret mqtt_port
-  username: !secret mqtt_username
-  password: !secret mqtt_password    
+  id: b2500v1
+  broker: 192.168.178.169
+  port: 1883
+  username: mqtt-user
+  password: mqtt
   discovery: False
   reboot_timeout: 0s
   topic_prefix: b2500
@@ -140,7 +141,7 @@ esp32_ble_tracker:
     continuous: false
 
 ble_client:
-  - mac_address: !secret hm2500_1_mac
+  - mac_address: C4:A6:4E:45:23:15
     id: bc2500_1
     on_connect:
       then:
